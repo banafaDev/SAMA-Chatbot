@@ -1,3 +1,5 @@
+<div align="center">
+
 # SAMABot 🤖
 
 A simple bilingual chatbot for answering questions about the **SAMA Consumer Protection** document.
@@ -6,6 +8,8 @@ A simple bilingual chatbot for answering questions about the **SAMA Consumer Pro
 [![Jupyter Notebook](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Gemini](https://img.shields.io/badge/LLM-Gemini-blueviolet.svg)](https://ai.google.dev/)
+
+</div>
 
 ## Overview
 
@@ -19,7 +23,7 @@ https://sama.gov.sa/en-US/LawsRegulations/ConsumerProtectionRules/Consumer_Prote
 - Splits the document into chunks for retrieval
 - Uses the document context to generate answers
 - Supports both Arabic and English
-- Includes simple quality tests to check response behavior
+- Simple notebook-based workflow for quick validation
 
 ## Model Used 🧠
 
@@ -37,16 +41,22 @@ Current notebook version uses Google Gemini:
 ## Requirements 🛠️
 
 - Python 3.11+
+- Jupyter Notebook (or JupyterLab)
+- `google-genai`
 - `PyPDF2`
-- `requests`
-- `numpy`
-- Google Gemini API
+- Google Gemini API key (`GOOGLE_API_KEY`)
 
 ## Setup 🚀
 
 1. Put `Consumer_Protection_EN.pdf` in the same folder as the notebook.
-2. Open `SAMA_ChatBot.ipynb` and run the cells in order.
-3. Set your Gemini API key as an environment variable:
+2. Install dependencies:
+
+```bash
+pip install google-genai PyPDF2
+```
+
+3. Open `SAMA_ChatBot.ipynb` and run the cells in order.
+4. Set your Gemini API key as an environment variable:
 
 ```bash
 export GOOGLE_API_KEY="your_api_key_here"
@@ -59,6 +69,15 @@ Ask questions like:
 - What is SAMA?
 - What are my rights as a bank customer?
 - How are complaints handled?
+
+## Testing ✅
+
+Quick manual validation in the notebook:
+
+1. Run all cells in `SAMA_ChatBot.ipynb`.
+2. Ask one question that should exist in the PDF (for example: "What is SAMA?").
+3. Ask one very specific question that is likely outside the document.
+4. Confirm the bot gives a helpful fallback message when details are not covered.
 
 ## Notes ⚠️
 
